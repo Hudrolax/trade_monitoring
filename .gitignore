@@ -238,5 +238,5 @@ dist
 .env
 *.log
 log/
-*.txt
+Performance-P100.txt
 .DS_Store
