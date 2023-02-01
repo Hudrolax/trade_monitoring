@@ -1,0 +1,152 @@
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.column {
+    background-color: #000;
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #000;
+        :hover {
+            filter: grayscale(80%);
+            transition: all 0.6s ease;
+        }
+    }
+
+    &-body {
+        display: flex;
+        // grid-template-columns: 30px;
+        flex-direction: column-reverse;
+    }
+
+    &-header {
+        box-sizing: border-box;
+        height: 22px;
+        width: 26px;
+        border-right: 1px solid #000;
+        display: flex;
+        background-color: grey;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.c {
+    &1 {
+        background-color: #2a6419;
+    }
+    &2 {
+        background-color: #377e22;
+    }
+    &3 {
+        background-color: #43972a;
+    }
+    &4 {
+        background-color: #5cc93b;
+    }
+    &5 {
+        background-color: #67c94d;
+    }
+    &6 {
+        background-color: #75fb4c;
+    }
+    &7 {
+        background-color: #b1fd7b;
+    }
+    &8 {
+        background-color: #d6fe5e;
+    }
+    &9 {
+        background-color: #ffff7f;
+    }
+    &10 {
+        background-color: #f7ce46;
+    }
+    &11 {
+        background-color: #f7ce76;
+    }
+    &12 {
+        background-color: #f7cea0;
+    }
+    &13 {
+        background-color: #f7cecd;
+    }
+    &14 {
+        background-color: #ed702d;
+    }
+    &15 {
+        background-color: #ee8383;
+    }
+    &16 {
+        background-color: #ee8383;
+    }
+    &17 {
+        background-color: #ed7099;
+    }
+    &18 {
+        background-color: #ed7099;
+    }
+    &19 {
+        background-color: #eb4826;
+    }
+    &20 {
+        background-color: #ea3323;
+    }
+}
+
+.hline {
+    width: 100%;
+    border: 0.5px solid grey;
+    position: absolute;
+
+    &_75 {
+        top: calc(25% - 5.5px);
+    }
+    &_50 {
+        top: calc(50% - 11px);
+    }
+    &_25 {
+        top: calc(75% - 16.5px);
+    }
+}
+
+.percent {
+    position: absolute;
+    color: grey;
+    transform: translate(-100%, -50%);
+
+    &_100 {
+        top: calc(0% + 15px);
+    }
+    &_75 {
+        top: calc(25% - 10.5px);
+    }
+    &_50 {
+        top: calc(50% - 16px);
+    }
+    &_25 {
+        top: calc(75% - 21.5px);
+    }
+    &_0 {
+        top: calc(100% - 8px);
+    }
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 26px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+
+    &__white {
+        background-color: #fff;
+    }
+
+    &__black {
+        background-color: #000;
+    }
+}

@@ -1,0 +1,35 @@
+.OnOff {
+    display: flex;
+    margin-top: 5px;
+    &_block {
+        box-sizing: border-box;
+        width: 26px;
+        height: 18px;
+        background-color: green;
+        border: 1px solid #000;
+        border-left: none;
+
+        &__red {
+            background-color: red;
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+
+        .label {
+            position: absolute;
+            top: 50%;
+            transform: translate(-110%, -50%);
+            color: #fff;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+    }
+}

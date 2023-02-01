@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./trade_monitoring_back
+    restart: always
+    volumes:
+      - ./trade_monitoring_back:/app
+      - ${MONITORING_FILE_PATH}:/app/data
+    environment:
+    - LOG_LEVEL=${LOG_LEVEL}
+    - WRITE_LOG_TO_FILE=${WRITE_LOG_TO_FILE}
+
+  proxy:
+    build:
+      context: ./trade_monitoring_back/proxy
+    volumes:
+      - ./trade_monitoring_front/build:/usr/share/nginx/html
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 8000:80

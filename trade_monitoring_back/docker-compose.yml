@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+    restart: always
+    volumes:
+      - ./:/app
+      - ${LOAD_FILE_PATH}:/app/data/load
+      - ${PERFORMANCE_FILE_PATH}:/app/data/performance
+      - ${EQUITY_FILES_PATH}:/app/data/equity
+
+    environment:
+    - LOG_LEVEL=${LOG_LEVEL}
+    - WRITE_LOG_TO_FILE=${WRITE_LOG_TO_FILE}
+
+  proxy:
+    build:
+      context: ./proxy
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 8000:80
