@@ -154,7 +154,6 @@ const Content = (props) => {
             frames={state.frames}
             config={state.config}
             onInitialized={(figure) => setState(figure)}
-        // onUpdate={(figure) => { setState(figure) }}
         />
     )
 }
