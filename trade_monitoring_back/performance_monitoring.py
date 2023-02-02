@@ -52,10 +52,15 @@ class PerformanceMonitoring:
             ...
             ...
         """
-        file_ts = getctime(self.path)
-        if self.file_timestamp == file_ts:
+        try:
+            file_ts = getctime(self.path)
+            if self.file_timestamp == file_ts:
+                return
+            self.file_timestamp = file_ts
+        except Exception as ex:
+            self.logger.warning(ex)
+            sleep(3)
             return
-        self.file_timestamp = file_ts
 
         self.lock.acquire()
         self._clear_db()
