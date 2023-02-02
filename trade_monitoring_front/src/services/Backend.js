@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = 'http://185.189.151.253:3001/';
 
 class Backend {
     getResource = async (url) => {
