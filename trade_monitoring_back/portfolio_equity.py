@@ -2,12 +2,12 @@ import threading
 import copy
 from time import sleep
 import logging
-from datetime import datetime
 import json
 from threading import Lock
 import os
 import pandas as pd
 import numpy as np
+from os.path import getctime
 
 
 class PortfolioEquity:
@@ -20,6 +20,7 @@ class PortfolioEquity:
 
     def __init__(self) -> None:
         self.db = {}
+        self.file_timestamp = 0
         self.lock = Lock()
         self.theread = threading.Thread(target=self._threaded_loop, args=())
 
@@ -30,7 +31,7 @@ class PortfolioEquity:
     def _threaded_loop(self) -> None:
         while True:
             self._read_file()
-            sleep(60)
+            sleep(5)
 
     def get_json(self) -> str:
         self.lock.acquire()
@@ -39,6 +40,12 @@ class PortfolioEquity:
         return json.dumps(answer, indent=0)
 
     def _read_file(self) -> None:
+        file_ts = getctime(self.path)
+        if self.file_timestamp == file_ts:
+            return
+        self.file_timestamp = file_ts
+
+
         self.logger.debug(f'Start reading the directory {self.path}')
         self.lock.acquire()
         self._clear_db()

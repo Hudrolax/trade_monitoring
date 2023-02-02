@@ -5,6 +5,7 @@ import logging
 import json
 from threading import Lock
 import pandas as pd
+from os.path import getctime
 
 
 class PerformanceMonitoring:
@@ -17,13 +18,14 @@ class PerformanceMonitoring:
 
     def __init__(self) -> None:
         self.db = {}
+        self.file_timestamp = 0
         self.lock = Lock()
         self.theread = threading.Thread(target=self._threaded_loop, args=())
 
     def _threaded_loop(self) -> None:
         while True:
             self._read_file()
-            sleep(60)
+            sleep(5)
 
     def _clear_db(self):
         self.db = {
@@ -50,6 +52,11 @@ class PerformanceMonitoring:
             ...
             ...
         """
+        file_ts = getctime(self.path)
+        if self.file_timestamp == file_ts:
+            return
+        self.file_timestamp = file_ts
+
         self.lock.acquire()
         self._clear_db()
         try:

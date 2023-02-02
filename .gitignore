@@ -237,3 +237,6 @@ typings/
 log/
 Performance-P100.txt
 .DS_Store
+
+#test files
+trade_monitoring_back/test*.py

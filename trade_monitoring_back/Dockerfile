@@ -1,4 +1,5 @@
-FROM python:3.11.1-alpine3.16
+# FROM python:3.11.1-alpine3.16
+FROM python:3.11.1
 LABEL maintainer="monitoring"
 
 ENV PYTHONUNBUFFERED 1
@@ -9,7 +10,7 @@ COPY . /app
 WORKDIR /app
 
 RUN python -m venv /py && \
-  apk add python3-dev build-base linux-headers pcre-dev && \
+  # apk add python3-dev build-base linux-headers pcre-dev && \
   /py/bin/pip install --upgrade pip && \
   /py/bin/pip install -r /tmp/requirements.txt && \
   rm -rf /tmp && \
