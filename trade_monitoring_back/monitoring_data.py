@@ -5,7 +5,6 @@ import logging
 from datetime import datetime
 import json
 from threading import Lock
-from os.path import getctime
 
 
 class MonitoringData:
@@ -19,7 +18,6 @@ class MonitoringData:
     def __init__(self) -> None:
         # first line (datetime) from last file
         self.last_time = None
-        self.file_timestamp = 0
         self.db = {}
         self.lock = Lock()
         self.theread = threading.Thread(target=self._threaded_loop, args=())
@@ -58,10 +56,6 @@ class MonitoringData:
             ...
             ...
         """
-        file_ts = getctime(self.path)
-        if self.file_timestamp == file_ts:
-            return
-        self.file_timestamp = file_ts
 
         self.lock.acquire()
         self._clear_db()
