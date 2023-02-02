@@ -1,4 +1,4 @@
-const BASE_URL = 'http://185.189.151.253:3001/';
+const BASE_URL = 'http://185.189.151.253/trading_monitoring';
 
 class Backend {
     getResource = async (url) => {
