@@ -1,4 +1,4 @@
-const BASE_URL = 'http://app/';
+const BASE_URL = 'http://localhost:8000/';
 
 class Backend {
     getResource = async (url) => {
