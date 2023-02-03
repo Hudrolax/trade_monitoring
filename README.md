@@ -6,3 +6,6 @@
 3. Set paths in .env (for Windows in WSL format)
 4. Run docker-compose
 5. Open http://localhost:8000/ in a browser
+
+## Demo
+http://185.189.151.253/trading_monitoring/
