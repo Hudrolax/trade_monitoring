@@ -80,7 +80,7 @@ class PortfolioEquity:
                 df['date_hover'] = df['date'].dt.strftime('%d.%m.%y')
                 max = 0
                 maxdd = 0
-                for i in range(0, len(df) - 1):
+                for i in range(0, len(df)):
                     if df.loc[i, 'equity'] > max:
                         max = df.loc[i, 'equity']
                     if max - df.loc[i, 'equity'] > 0:

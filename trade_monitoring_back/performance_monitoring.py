@@ -72,7 +72,7 @@ class PerformanceMonitoring:
             self.db['optimalPNL'] = df.loc[0, 'PNL']
             self.db['optimalRisk'] = df.loc[0, 'Risk']
 
-            for i in range(1, len(df)-1):
+            for i in range(1, len(df)):
                 _str = df.loc[i]
                 self.db['data'].append({
                     'date': _str['Date'],
