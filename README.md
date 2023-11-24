@@ -8,4 +8,4 @@
 5. Open http://localhost:8000/ in a browser
 
 ## Demo
-http://185.189.151.253/trading_monitoring/
+http://hud.net.ru:8001/
